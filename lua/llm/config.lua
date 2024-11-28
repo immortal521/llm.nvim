@@ -147,7 +147,7 @@ M.configs = {
     assistant = { text = "## Assistant \n", hl = "Added" },
   },
 
-  history_path = HOME .. "/.cache/llm-history",
+  history_path = HOME .. "/.cache/llm-history/",
   max_history_files = 15,
   max_history_name_length = 10,
   save_session = true,
