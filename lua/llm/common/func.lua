@@ -246,7 +246,7 @@ function M.CloseLLM()
       local _filename =
         utf8_sub(state.session[state.session.filename][2].content, 1, conf.configs.max_history_name_length)
       filename = (
-        string.format("%s%s-%s.json", dirname, _filename, os.date("%Y%m%d%H%M%S")):gsub(".", {
+        string.format("%s/%s-%s.json", dirname, _filename, os.date("%Y%m%d%H%M%S")):gsub(".", {
           ["["] = "\\[",
           ["]"] = "\\]",
           ["\n"] = " ",
