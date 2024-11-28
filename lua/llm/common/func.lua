@@ -238,15 +238,15 @@ function M.CloseLLM()
 
   if conf.configs.save_session and #state.session[state.session.filename] > 2 then
     local filename = nil
-    local dirname = vim.fn.fnamemodify(conf.configs.history_path, ":h")
+    local dirname = vim.fn.fnamemodify(conf.configs.history_path .. "/", ":h")
     vim.fn.mkdir(dirname, "p")
     if state.session.filename ~= "current" then
-      filename = string.format("%s/%s", dirname, state.session.filename)
+      filename = string.format("%s%s", dirname, state.session.filename)
     else
       local _filename =
         utf8_sub(state.session[state.session.filename][2].content, 1, conf.configs.max_history_name_length)
       filename = (
-        string.format("%s/%s-%s.json", dirname, _filename, os.date("%Y%m%d%H%M%S")):gsub(".", {
+        string.format("%s%s-%s.json", dirname, _filename, os.date("%Y%m%d%H%M%S")):gsub(".", {
           ["["] = "\\[",
           ["]"] = "\\]",
           ["\n"] = " ",
