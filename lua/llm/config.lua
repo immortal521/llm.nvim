@@ -14,7 +14,7 @@ local output_box_start = input_box_start
 local output_box_width = math.floor(get_win_width() * 0.7 - history_box_width - 2)
 local history_box_start = math.floor(output_box_start + get_win_width() * 0.7 - history_box_width)
 
-local HOME = os.getenv("HOME")
+local HOME = os.getenv("USERPROFILE")
 
 M._ = {}
 
