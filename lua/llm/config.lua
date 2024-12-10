@@ -14,7 +14,7 @@ local output_box_start = input_box_start
 local output_box_width = math.floor(get_win_width() * 0.7 - history_box_width - 2)
 local history_box_start = math.floor(output_box_start + get_win_width() * 0.7 - history_box_width)
 
-local HOME = os.getenv("HOME")
+local HOME = os.getenv("USERPROFILE")
 
 M._ = {}
 
@@ -147,7 +147,7 @@ M.configs = {
     assistant = { text = "## Assistant \n", hl = "Added" },
   },
 
-  history_path = HOME .. "/.local/state/nvim/llm-history",
+  history_path = HOME .. "/.cache/llm-history",
   max_history_files = 15,
   max_history_name_length = 10,
   save_session = true,
@@ -163,22 +163,22 @@ M.configs = {
   -- stylua: ignore
   keys = {
     -- The keyboard mapping for the input window.
-    ["Input:Submit"]  = { mode = "i", key = "<C-g>" },
-    ["Input:Cancel"]  = { mode = "i", key = "<C-c>" },
-    ["Input:Resend"]  = { mode = "i", key = "<C-r>" },
+    ["Input:Submit"]      = { mode = "i", key = "<C-g>" },
+    ["Input:Cancel"]      = { mode = "i", key = "<C-c>" },
+    ["Input:Resend"]      = { mode = "i", key = "<C-r>" },
 
     -- only works when "save_session = true"
-    ["Input:HistoryNext"]  = { mode = "i", key = "<C-j>" },
-    ["Input:HistoryPrev"]  = { mode = "i", key = "<C-k>" },
+    ["Input:HistoryNext"] = { mode = "i", key = "<C-j>" },
+    ["Input:HistoryPrev"] = { mode = "i", key = "<C-k>" },
 
     -- The keyboard mapping for the output window in "split" style.
-    ["Output:Ask"]  = { mode = "n", key = "i" },
-    ["Output:Cancel"]  = { mode = "n", key = "<C-c>" },
-    ["Output:Resend"]  = { mode = "n", key = "<C-r>" },
+    ["Output:Ask"]        = { mode = "n", key = "i" },
+    ["Output:Cancel"]     = { mode = "n", key = "<C-c>" },
+    ["Output:Resend"]     = { mode = "n", key = "<C-r>" },
 
     -- The keyboard mapping for the output and input windows in "float" style.
-    ["Session:Toggle"] = { mode = "n", key = "<leader>ac" },
-    ["Session:Close"]  = { mode = "n", key = "<esc>" },
+    ["Session:Toggle"]    = { mode = "n", key = "<leader>ac" },
+    ["Session:Close"]     = { mode = "n", key = "<esc>" },
   },
 }
 
